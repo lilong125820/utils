@@ -1,5 +1,7 @@
 package com.lilong.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -43,10 +45,13 @@ public class DateUtil {
 	 * @return
 	 * 
 	 * @return: int
+	 * @throws ParseException 
 	 * 
 	 */
 	// 2020-02-02 2000-03-03
-	public static int getAgeByBirthday(Date date) {
+	public static int getAgeByBirthday(String aa) throws ParseException {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = simpleDateFormat.parse(aa);
 		// 用系统时间获取日历类
 		Calendar c = Calendar.getInstance();
 		int s_year = c.get(Calendar.YEAR);// 获取系统的年
